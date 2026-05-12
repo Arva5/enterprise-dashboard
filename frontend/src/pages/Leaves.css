@@ -1,0 +1,140 @@
+.leaves-page {
+  max-width: 1200px;
+}
+
+.leaves-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.leave-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.leave-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.leave-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.leave-type {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.leave-icon {
+  font-size: 32px;
+}
+
+.leave-type h3 {
+  margin: 0 0 4px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.leave-employee {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-approved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-rejected {
+  background: #fee;
+  color: #991b1b;
+}
+
+.leave-details {
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.detail-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  color: #666;
+  min-width: 140px;
+}
+
+.detail-value {
+  color: #333;
+  flex: 1;
+}
+
+.days-count {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.leave-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-approve, .btn-reject {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-approve {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.btn-approve:hover {
+  background: #a7f3d0;
+}
+
+.btn-reject {
+  background: #fee;
+  color: #991b1b;
+}
+
+.btn-reject:hover {
+  background: #fcc;
+}

@@ -1,0 +1,155 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.sidebar {
+  width: 260px;
+  background: white;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+}
+
+.sidebar.closed {
+  width: 80px;
+}
+
+.sidebar-header {
+  padding: 24px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar-header h2 {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.nav-item {
+  width: 100%;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #666;
+  font-size: 15px;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background: #f5f7fa;
+  color: #667eea;
+}
+
+.nav-item.active {
+  background: #f0f2ff;
+  color: #667eea;
+  border-left-color: #667eea;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.user-info {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  font-size: 14px;
+}
+
+.user-role {
+  color: #999;
+  font-size: 12px;
+  text-transform: capitalize;
+  margin: 2px 0 0 0;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background: #cc0000;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 260px;
+  padding: 30px;
+  transition: margin-left 0.3s;
+}
+
+.sidebar.closed + .main-content {
+  margin-left: 80px;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 270px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 101;
+  transition: left 0.3s;
+}
+
+.sidebar.closed ~ .main-content .sidebar-toggle {
+  left: 90px;
+}

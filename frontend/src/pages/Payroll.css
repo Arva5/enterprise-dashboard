@@ -1,0 +1,138 @@
+.payroll-page {
+  max-width: 1400px;
+}
+
+.year-section {
+  margin-bottom: 40px;
+}
+
+.year-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.payroll-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.payroll-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.payroll-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.payroll-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.payroll-header h3 {
+  margin: 0 0 4px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.payroll-month {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.status-processed {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-paid {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.payroll-details {
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.salary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.salary-row:last-child {
+  margin-bottom: 0;
+}
+
+.salary-row .label {
+  color: #666;
+}
+
+.salary-row .value {
+  font-weight: 600;
+  color: #333;
+}
+
+.salary-row.positive .label,
+.salary-row.positive .value {
+  color: #059669;
+}
+
+.salary-row.negative .label,
+.salary-row.negative .value {
+  color: #dc2626;
+}
+
+.salary-row.total {
+  padding-top: 10px;
+  border-top: 2px solid #e0e0e0;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.salary-row.total .label,
+.salary-row.total .value {
+  color: #667eea;
+  font-weight: 700;
+}
+
+.payment-date {
+  padding: 10px;
+  background: #f0f9ff;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #0369a1;
+  text-align: center;
+}
+
+.net-salary-preview {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background: #f0f9ff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.net-amount {
+  color: #667eea;
+  font-size: 24px;
+}
