@@ -36,7 +36,7 @@ const connectDB = async () => {
     await sequelize.authenticate();
     console.log('✅ PostgreSQL Connected');
     
-    require('../models/index');
+    const { User } = require('../models/index');
     
     if (process.env.NODE_ENV === 'development') {
       await sequelize.sync({ force: true });
@@ -44,6 +44,23 @@ const connectDB = async () => {
       await sequelize.sync({ alter: true });
     }
     console.log('✅ Database Synced');
+
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@company.com';
+    const adminPassword = process.env.ADMIN_PASSWORD || 'Admin@123';
+    const existingAdmin = await User.findOne({ where: { email: adminEmail } });
+
+    if (!existingAdmin) {
+      await User.create({
+        email: adminEmail,
+        password: adminPassword,
+        firstName: 'Super',
+        lastName: 'Admin',
+        role: 'admin',
+        department: 'Management',
+        position: 'Administrator'
+      });
+      console.log('✅ Default admin user created');
+    }
   } catch (error) {
     console.error('❌ Database Error:', error.message);
     process.exit(1);
