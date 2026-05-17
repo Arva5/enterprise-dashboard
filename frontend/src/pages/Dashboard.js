@@ -13,7 +13,6 @@ function Dashboard() {
     totalPayroll: 0,
     activeEmployees: 0
   });
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchUserData();
@@ -32,8 +31,6 @@ function Dashboard() {
 
   const fetchStats = async () => {
     try {
-      setLoading(true);
-      
       // Fetch users
       const usersRes = await api.get('/users');
       const users = usersRes.data.data;
@@ -51,8 +48,6 @@ function Dashboard() {
       });
     } catch (error) {
       console.error('Failed to fetch stats:', error);
-    } finally {
-      setLoading(false);
     }
   };
 

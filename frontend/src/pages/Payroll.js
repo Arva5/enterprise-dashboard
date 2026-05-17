@@ -9,6 +9,7 @@ function Payroll() {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const currentUser = JSON.parse(localStorage.getItem('user'));
+  const currentUserRole = currentUser?.role;
 
   const [formData, setFormData] = useState({
     userId: '',
@@ -22,13 +23,17 @@ function Payroll() {
 
   useEffect(() => {
     fetchPayrolls();
-    if (currentUser.role === 'admin' || currentUser.role === 'hr') {
+    if (currentUserRole === 'admin' || currentUserRole === 'hr') {
       fetchUsers();
     }
-  }, []);
+  }, [currentUserRole]);
 
   useEffect(() => {
-    calculateNetSalary();
+    const basic = parseFloat(formData.basicSalary) || 0;
+    const allow = parseFloat(formData.allowances) || 0;
+    const deduct = parseFloat(formData.deductions) || 0;
+    const net = basic + allow - deduct;
+    setFormData(prev => ({ ...prev, netSalary: net.toFixed(2) }));
   }, [formData.basicSalary, formData.allowances, formData.deductions]);
 
   const fetchPayrolls = async () => {
@@ -50,14 +55,6 @@ function Payroll() {
     } catch (error) {
       console.error('Failed to fetch users');
     }
-  };
-
-  const calculateNetSalary = () => {
-    const basic = parseFloat(formData.basicSalary) || 0;
-    const allow = parseFloat(formData.allowances) || 0;
-    const deduct = parseFloat(formData.deductions) || 0;
-    const net = basic + allow - deduct;
-    setFormData(prev => ({ ...prev, netSalary: net.toFixed(2) }));
   };
 
   const handleSubmit = async (e) => {
@@ -113,7 +110,7 @@ function Payroll() {
             <h1>Payroll Management</h1>
             <p>View and manage employee salaries</p>
           </div>
-          {(currentUser.role === 'admin' || currentUser.role === 'hr') && (
+          {(currentUserRole === 'admin' || currentUserRole === 'hr') && (
             <button className="btn btn-primary" onClick={() => setShowModal(true)}>
               + Generate Payroll
             </button>
